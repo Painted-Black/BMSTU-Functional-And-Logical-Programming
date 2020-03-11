@@ -1,0 +1,15 @@
+(defun d (a b c)
+(- (* b b) (* 4 a c)))
+
+(defun q_eq (a b c)
+(or (and (= a 0) 
+        (or  (and (/= b 0) (- 0 (/ c b)))
+             (and (= c 0) 'Любое_число)
+             'Решений_нет
+        )
+    )
+    (or (and (= (d a b c) 0) (/ (- 0 b) (* 2 a))) 
+        (and (> (d a b c) 0) (list (/ (+ (- 0 b) (sqrt (d a b c))) 2) (/ (- (- 0 b) (sqrt (d a b c))) 2)))
+        (and (< (d a b c) 0) 'Нет_действительных_корней)
+    )
+))
