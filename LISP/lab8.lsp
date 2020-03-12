@@ -64,8 +64,12 @@
 
 --------------------------------------------------------------------------------
 
-(defun shl (lst)
+(defun shl2 (lst)
     (append (cdr lst) (cons (car lst) Nil))
+)
+
+(defun shl (lst)
+    (cons (cdr lst) (cons (car lst) Nil))
 )
 
 
@@ -76,8 +80,12 @@
     lst
 )
 
-(defun shr (lst)
+(defun shr2 (lst)
     (append (last lst) (reverse (cdr (reverse lst))))
+)
+
+(defun shr (lst)
+    (cons (car (last lst)) (reverse (cdr (reverse lst))))
 )
 
 (defun swap-to-right (lst k)
@@ -116,7 +124,6 @@
 )
 
 --------------------------------------------------------------------------------
-
 
 
 
