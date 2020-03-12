@@ -83,4 +83,65 @@
     )
 )
 
+--------------------------------------------------------------------------------
+
+(defun random_number ()
+    (list (+ (random 6) 1) (+ (random 6) 1))
+)
+
+(defun print_info (n player)
+    (terpri)
+    (princ  "Игрок №")
+    (princ n)
+    (print player)
+    (terpri)
+)
+
+(defun out (lst)
+    (cond ((equal lst '(6 6)) T)
+          ((equal lst '(1 1)) T)
+    )
+)
+
+(defun play (n)
+    (setf player (random_number))
+    (print_info n player)
+    (do
+        ()
+        ((not (out player)))
+        (setf player (random_number))
+        (print_info n player)
+    )
+    player
+)
+
+(defun abs_winner (player)
+    (cond ((= (+ (car player) (car (last player))) 11) T)
+          ((= (+ (car player) (car (last player))) 7) T)
+    )
+)
+
+(defun total_score (player)
+    (+ (car player) (car (last player)))
+)
+
+(defun my_game2 ()
+    (print "Ходит первый игрок")
+    (setf player1 (play 1))
+    
+    (cond
+        ( (abs_winner player1) (print "Первый игрок выиграл абсолютно.") )
+        ( (print "Ходит второй игрок")
+          (setf player2 (play 2)) 
+          (cond ( (abs_winner player2) (print "Второй игрок выиграл абсолютно."))
+                ( ( cond
+                        ( (= (total_score player1) (total_score player2)) (print "Ничья"))
+                        ( (> (total_score player1) (total_score player2)) (print "Выиграл первый игрок"))
+                        ( (< (total_score player1) (total_score player2)) (print "Выиграл второй игрок"))
+                ) )
+          )
+        )
+    )
+    "Конец игры"
+)
 
