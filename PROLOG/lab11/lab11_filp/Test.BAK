@@ -1,0 +1,27 @@
+/*****************************************************************************
+
+		Copyright (c) My Company
+
+ Project:  TEST
+ FileName: TEST.PRO
+ Purpose: No description
+ Written by: Visual Prolog
+ Comments:
+******************************************************************************/
+
+include "test.inc"
+
+predicates 
+abonent(string,string, string)
+clauses
+
+goal
+
+abonent(_, _, _).
+%abonent(_, PHONE, _).
+%abonent(NAME, _, _).
+%abonent("Alexandrov A. A.", PHONE, "Russia, Moscow, Izm. prosp., h. 2, fl. 4").
+%abonent("Sidorov P. I.","89997583845", "Russia, Moscow, Izm. prosp., h. 2, fl. 3").
+%abonent("Alexandrova E. E.","89998545443", "Russia, Moscow, Izm. prosp., h. 2, fl. 4").
+%abonent("Alexandrova E. E.","89998545443", ADDRESS).
+%abonent(NAME, PHONE, ADDRESS).
